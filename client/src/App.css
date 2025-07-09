@@ -497,7 +497,7 @@ body {
   background: #ffffffdd;
   color: #333;
   transition: 0.3s;
-  width: 100px;
+  
 }
 
 .entry-buttons button:hover,
@@ -508,5 +508,7 @@ body {
 .entry-buttons{
   display: flex;
   flex-direction: column;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 }
