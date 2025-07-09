@@ -497,6 +497,7 @@ body {
   background: #ffffffdd;
   color: #333;
   transition: 0.3s;
+  width: 100px;
 }
 
 .entry-buttons button:hover,
