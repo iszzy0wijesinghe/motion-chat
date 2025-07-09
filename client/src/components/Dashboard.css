@@ -1,0 +1,88 @@
+body {
+  overflow: hidden;
+  margin: 0;
+}
+
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.sidebar {
+  width: 240px;
+  background-color: #111;
+  color: white;
+  padding: 30px 20px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  
+}
+
+.logodashboard {
+  height: 4rem;
+  width: auto;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+  position: absolute;
+  left: 6%;
+  top: 0rem;
+}
+
+.logodashboard img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+
+main {
+  overflow-y: auto;
+  flex: 1;
+  padding: 20px;
+}
+
+
+.sidebar h3 {
+  margin-bottom: 2rem;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-list li {
+  margin-bottom: 1rem;
+  transition: all 0.2s ease;
+}
+
+.nav-list li a {
+  color: #ccc;
+  text-decoration: none;
+  font-weight: 500;
+  display: block;
+  padding: 10px 15px;
+  border-radius: 6px;
+}
+
+.nav-list li:hover a,
+.nav-list li.active a {
+  background-color: white;
+  color: black;
+}
+
+.dashboard-main {
+  flex: 1;
+  
+  padding: 30px;
+  overflow: hidden;
+}

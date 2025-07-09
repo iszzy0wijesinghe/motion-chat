@@ -1,0 +1,146 @@
+/* Prevent page scroll */
+html, body {
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container styles */
+.responded-chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 95vh;
+  padding: 30px;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f7f7f7;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+
+.responded-chat-container h2 {
+  margin-bottom: 20px;
+}
+
+.download-btn {
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  width: 15vw;
+  cursor: not-allowed;
+  margin-left: 59vw;
+}
+
+.download-btn:hover {
+  background-color: #adadad;
+  color: black;
+}
+
+
+/* Table layout container */
+.responded-table-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Table styles */
+.responded-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.responded-table thead {
+  background-color: #000;
+  color: #fff;
+}
+
+.responded-table th,
+.responded-table td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.responded-table td{
+  color: #000000;
+}
+
+.responded-table th:first-child {
+  border-top-left-radius: 12px;
+}
+.responded-table th:last-child {
+  border-top-right-radius: 12px;
+}
+
+/* Scrollable tbody wrapper */
+.responded-table-body-wrapper {
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+/* Hover effect */
+.responded-table tbody tr:hover {
+  background-color: #f1f1f1;
+  transition: background 0.2s ease;
+}
+
+/* Premium scrollbar */
+.responded-table-body-wrapper::-webkit-scrollbar {
+  width: 10px;
+}
+.responded-table-body-wrapper::-webkit-scrollbar-track {
+  background: #eee;
+}
+.responded-table-body-wrapper::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 8px;
+  border: 2px solid #eee;
+}
+.responded-table-body-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+
+
+
+
+
+
+
+
+
+.report-controls-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.date-selectors label {
+  font-weight: bold;
+  color: #000;
+}
+
+.generate-report-btn {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.generate-report-btn:hover {
+  background-color: #333;
+}

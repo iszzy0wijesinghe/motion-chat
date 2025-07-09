@@ -1,0 +1,471 @@
+/* chat agent page  */
+.agent-chat-container {
+  padding: 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+  z-index: 1;
+  
+}
+
+.logochat {
+  height: 3rem;
+  width: auto;
+  z-index: 9999;
+  display: flex;
+  
+  margin-top: 3rem;
+  position: absolute;
+  left: 88%;
+  top: 1.5rem;
+}
+
+.logochat img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+
+.agent-chat-header {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.5rem;
+  
+}
+
+.chat-box {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1rem;
+  height: 60vh;
+  overflow-y: auto;
+}
+
+.chat-bubble {
+  display: flex;
+  margin: 0.5rem 0;
+  max-width: 100%;
+  
+}
+
+.chat-bubble.agent {
+  justify-content: flex-start;
+}
+
+.chat-bubble.guest {
+  justify-content: flex-end;
+}
+
+.bubble-content {
+  background: rgba(100, 100, 255, 0.1);
+  padding: 0.6rem 1rem;
+  border-radius: 1rem;
+  max-width: 70%;
+  font-size: small;
+  word-wrap: break-word;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.chat-bubble.agent .bubble-content {
+  background: #2a2a2a; /* light gray */
+  border-top-left-radius: 0.3rem;
+  color: white;
+}
+
+.chat-bubble.guest .bubble-content {
+  background: #ececec; 
+  border-top-right-radius: 0.3rem;
+}
+
+
+.bubble-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  opacity: 0.7;
+  margin-top: 0.25rem;
+}
+
+.time-right {
+  text-align: right;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+
+.chat-input {
+  display: flex;
+  margin-bottom: 3rem;
+  margin-top: 1rem;
+  z-index: 999;
+  border-radius: 1.8rem;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0px 15px rgba(0, 0, 0, 0.3); 
+  padding: 1rem;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 10px;
+  margin-right: 1rem;
+  outline: none; /* Removes default black outline */
+  box-shadow: 0 0 0 2px transparent;
+  transition: box-shadow 0.2s ease;
+}
+
+.chat-input input:focus {
+  box-shadow: 0 0 0 2px #000000;
+}
+
+
+
+
+.chat-input button {
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 1rem;
+  padding: 0 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  
+}
+
+.chat-input button:hover{
+background-color: rgb(219, 219, 219);
+  color: black;
+}
+
+.chat-body{
+  background-color: rgb(172, 172, 172);
+  z-index: -999;
+}
+
+
+.chat-layout-container {
+  position: relative;
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background-color: white;
+  overflow: hidden; /* prevent scrollbars from background */
+}
+
+/* Add this style for a background overlay */
+.chat-layout-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url("../assets/backgroundpattern.png");
+  background-size: cover;       /* make image fit */
+  background-position: center;  /* center it */
+  opacity: 0.11;                 /* reduce visibility */
+  z-index: 0;                   /* keep behind everything */
+}
+
+/* Make sure content stays above the background */
+.chat-layout-container > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+.chat-left-space {
+  width: 10%;
+  background: transparent;
+}
+
+.chat-main-section {
+  width: 70%;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.3);
+  /* backdrop-filter: blur(0.1px); */
+  border-radius: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-details-section {
+  width: 15%;
+  padding: 20px;
+  background: rgba(236, 236, 236, 0.5);
+  backdrop-filter: blur(10px);
+  /* border-left: 1px solid rgba(0, 0, 0, 0.05); */
+   box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  margin: 2rem;
+}
+
+.details-box {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  text-align: center;
+  font-size: small;
+}
+
+
+.waiting-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(46, 46, 46, 0.85); /* Darker background */
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.waiting-box {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+
+/* .line-loader {
+  margin-top: 12px;
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(to right, #5f9fff, #0055ff);
+  animation: loaderMove 1.5s linear infinite;
+  border-radius: 8px;
+} */
+
+@keyframes loaderMove {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.system-popup {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: small;
+  background: rgba(199, 199, 199, 0.9);
+  padding: 10px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-weight: bold;
+  color: #333;
+  z-index: 998;
+}
+
+/* Scrollbar styling */
+.scrollable-chat::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollable-chat::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.scrollable-chat::-webkit-scrollbar-thumb {
+  background: rgba(149, 149, 149, 0.4); /* pastel blue */
+  border-radius: 10px;
+}
+
+.scrollable-chat::-webkit-scrollbar-thumb:hover {
+  background: rgba(52, 52, 52, 0.6);
+}
+
+/* Custom Scrollbar + Smooth Scroll for Chat */
+.scrollable-chat {
+  height: calc(100vh - 180px); /* Adjust as needed */
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  padding: 1rem;
+}
+
+
+/* Overlay loader */
+.waiting-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+  background: rgba(122, 122, 122, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.waiting-box {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.line-loader {
+  position: relative;
+  height: 4px;
+  width: 100%;
+  max-width: 300px;
+  margin: 20px auto 0;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.line-loader::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 30%;
+  background: rgba(0, 0, 0, 0.5); /* pastel blue */
+  animation: line-slide 1.5s infinite ease-in-out;
+  border-radius: 2px;
+}
+
+
+.screenshot-btn {
+  background: #ffffff33;
+  border: 1px solid #aaa;
+  border-radius: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 0.5rem;
+  color: #222;
+  transition: background 0.3s ease;
+}
+
+.screenshot-btn:hover {
+  background: #ffffff66;
+}
+
+
+.chat-footer-tip {
+  margin-top: -2rem;
+  margin-bottom: 2rem;
+  font-size: 0.85rem;
+  color: #555;
+  text-align: center;
+  
+}
+
+.chat-footer-tip a {
+  color: #000000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.chat-footer-tip a:hover {
+  text-decoration: underline;
+}
+
+
+
+.rating-overlay {
+  position: fixed;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.6);
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rating-box {
+  padding: 2rem;
+  border-radius: 15px;
+  background: white;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.star {
+  font-size: 2.4rem;
+  color: #eee; /* default */
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s;
+  user-select: none;
+}
+
+.star:hover {
+  color: #999; /* hover dark */
+  transform: translateY(-4px) scale(1.2);
+}
+
+.star.filled {
+  color: #000; /* selected stars */
+}
+
+.rating-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.rate-submit, .rate-skip {
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.rate-submit {
+  background-color: #000000;
+  color: white;
+}
+
+.rate-submit:hover {
+  background-color: #eee;
+  color: black;
+}
+
+
+.rate-skip {
+  background-color: #bbb;
+  color: black;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.star {
+  font-size: 2.6rem;
+  color: #eee;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  user-select: none;
+}
+
+.star:hover {
+  transform: scale(1.2) translateY(-3px);
+}
+
+.star.filled {
+  color: #000;
+}

@@ -1,0 +1,165 @@
+/* Main layout */
+.report-preview-container {
+  display: flex;
+  height: 100vh;
+  background-color: #000;
+  color: #fff;
+  font-family: "Segoe UI", sans-serif;
+  overflow: hidden;
+}
+
+/* Loader screen */
+.loader-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  height: 100vh;
+}
+
+/* Left panel with report */
+.report-left-panel {
+  width: 75%;
+  padding: 2rem;
+  overflow-y: auto;
+  background-color: #111;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Custom scrollbar */
+.report-left-panel::-webkit-scrollbar {
+  width: 10px;
+}
+.report-left-panel::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 10px;
+}
+.report-left-panel::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Report page styling */
+.report-page {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #1a1a1a;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.report-logo {
+  text-align: center;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+ 
+}
+
+
+.report-logo img {
+  width: 111px; /* or any size you prefer */
+  
+}
+
+
+.report-logo img {
+  height: 80px;
+}
+
+.report-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  color: #000000;
+}
+
+.report-header p {
+  margin: 0.3rem 0;
+}
+
+hr {
+  border: 1px solid #333;
+  margin-bottom: 1.5rem;
+}
+
+h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #000000;
+}
+
+.report-bullet {
+  list-style: none;
+  padding-left: 1rem;
+  line-height: 1.8;
+}
+
+.report-chart-placeholder {
+  margin: 2rem 0;
+}
+
+.chart-box {
+  height: 200px;
+  background: #d8d8d8;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-style: italic;
+}
+
+/* Footer */
+.report-footer {
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* Right panel with buttons */
+.report-actions-panel {
+  width: 25%;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  gap: 1rem;
+  box-shadow: inset 1px 0 5px rgba(255, 255, 255, 0.05);
+}
+
+.report-btn {
+  width: 90%;
+  padding: 12px 16px;
+  background: #fff;
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.report-btn:hover {
+  background: #ccc;
+  transform: translateY(-1px);
+}
+
+.report-page {
+  background: white; /* Ensure white background */
+  padding: 20px;
+  color: black;
+}
+
+
+.report-bullet {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.report-bullet li {
+  margin-bottom: 6px;
+}
