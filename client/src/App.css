@@ -485,3 +485,27 @@ body {
 }
 
 
+@media (max-width: 600px) {
+  .entry-buttons button,
+.guest-form button {
+  margin: 10px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  background: #ffffffdd;
+  color: #333;
+  transition: 0.3s;
+}
+
+.entry-buttons button:hover,
+.guest-form button:hover {
+  background: #f4f4f4;
+}
+
+.entry-buttons{
+  display: flex;
+  flex-direction: column;
+}
+}
