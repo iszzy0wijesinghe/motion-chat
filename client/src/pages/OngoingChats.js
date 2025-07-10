@@ -3,7 +3,9 @@ import { useNavigate } from "react-router-dom";
 import io from "socket.io-client";
 import "../App.css";
 
-const socket = io("https://motion-chat-production.up.railway.app"), { transports: ["websocket"] });
+const socket = io("https://motion-chat-production.up.railway.app", {
+  transports: ["websocket"]
+});
 
 const topicLabels = {
   service: "Service",

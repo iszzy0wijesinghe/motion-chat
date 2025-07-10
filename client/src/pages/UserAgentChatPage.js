@@ -5,7 +5,9 @@ import html2canvas from "html2canvas";
 import "../pages/chat.css";
 import Logo from "../assets/logoblack.png";
 
-const socket = io("https://motion-chat-production.up.railway.app"), { transports: ["websocket"] });
+const socket = io("https://motion-chat-production.up.railway.app", {
+  transports: ["websocket"]
+});
 
 export default function UserAgentChatPage() {
   const { userId } = useParams(); 
