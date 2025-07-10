@@ -7,7 +7,7 @@ export default function AgentManagementPage() {
 
   const fetchAgents = async () => {
     try {
-      const res = await fetch("http://localhost:3001/api/agent-management/all");
+      const res = await fetch("https://motion-chat-production.up.railway.app/api/agent-management/all");
       const data = await res.json();
       setPendingAgents(data.pending);
       setApprovedAgents(data.approved);
@@ -18,7 +18,7 @@ export default function AgentManagementPage() {
 
   const approveAgent = async (id) => {
     try {
-      await fetch(`http://localhost:3001/api/agent-management/approve/${id}`, {
+      await fetch(`https://motion-chat-production.up.railway.app/api/agent-management/approve/${id}`, {
         method: "POST",
       });
       fetchAgents();
@@ -30,7 +30,7 @@ export default function AgentManagementPage() {
   const deleteAgent = async (id) => {
     if (!window.confirm("Are you sure you want to delete this agent?")) return;
     try {
-      await fetch(`http://localhost:3001/api/agent-management/${id}`, {
+      await fetch(`https://motion-chat-production.up.railway.app/api/agent-management/${id}`, {
         method: "DELETE",
       });
       fetchAgents();

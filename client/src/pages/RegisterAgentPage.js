@@ -75,7 +75,7 @@ export default function RegisterAgentPage() {
       return alert("Please complete all required fields.");
     try {
       setIsSendingOtp(true);
-      const res = await fetch("http://localhost:3001/api/agent/send-otp", {
+      const res = await fetch("https://motion-chat-production.up.railway.app/api/agent/send-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: personalEmail }),

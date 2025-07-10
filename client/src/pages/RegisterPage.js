@@ -37,7 +37,7 @@ export default function RegisterPage() {
 
     try {
       setIsSendingOtp(true);
-      const res = await fetch("http://localhost:3001/api/auth/send-otp", {
+      const res = await fetch("https://motion-chat-production.up.railway.app/api/auth/send-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),

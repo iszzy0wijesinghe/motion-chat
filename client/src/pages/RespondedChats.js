@@ -11,7 +11,7 @@ export default function RespondedChats() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/api/responded-chats")
+      .get("https://motion-chat-production.up.railway.app/api/responded-chats")
       .then((res) => setChats(res.data))
       .catch((err) => console.error("❌ Failed to load chats", err));
   }, []);
