@@ -4,7 +4,7 @@ import html2canvas from "html2canvas";
 import "../pages/chat.css";
 import Logo from "../assets/logoblack.png";
 
-const socket = io("http://localhost:3001");
+const socket = io("https://motion-chat-production.up.railway.app");
 
 export default function GuestChatPage() {
   const [guestName] = useState(localStorage.getItem("guestName") || "");

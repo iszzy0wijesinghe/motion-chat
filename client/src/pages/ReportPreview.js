@@ -20,7 +20,7 @@ export default function ReportPreview() {
   const [analytics, setAnalytics] = useState(null);
 
 useEffect(() => {
-  axios.get("/api/report-analytics")
+  axios.get("https://motion-chat-production.up.railway.app/api/report-analytics")
     .then(res => setAnalytics(res.data))
     .catch(err => console.error("Analytics fetch failed:", err));
 }, []);
