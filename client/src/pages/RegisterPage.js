@@ -67,7 +67,7 @@ export default function RegisterPage() {
 
   const verifyOtp = async (finalOtp) => {
     try {
-      const res = await fetch("http://localhost:3001/api/auth/verify-otp", {
+      const res = await fetch("https://motion-chat-production.up.railway.app/api/auth/verify-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, otp: finalOtp }),
@@ -98,7 +98,7 @@ export default function RegisterPage() {
     }
 
     try {
-      const res = await fetch("http://localhost:3001/api/auth/register", {
+      const res = await fetch("https://motion-chat-production.up.railway.app/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ fullName, contactNo, email, address, customerId, password }),

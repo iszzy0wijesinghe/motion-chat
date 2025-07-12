@@ -103,7 +103,7 @@ export default function RegisterAgentPage() {
 
   const verifyOtp = async (finalOtp) => {
     try {
-      const res = await fetch("http://localhost:3001/api/agent/verify-otp", {
+      const res = await fetch("https://motion-chat-production.up.railway.app/api/agent/verify-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: personalEmail, otp: finalOtp }),
@@ -122,7 +122,7 @@ export default function RegisterAgentPage() {
 
   const registerAgent = async () => {
     try {
-      const res = await fetch("http://localhost:3001/api/agent/register", {
+      const res = await fetch("https://motion-chat-production.up.railway.app/api/agent/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
