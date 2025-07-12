@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../App.css";
 import BubbleBackground from "../assets/BubbleBackground";
@@ -27,9 +27,16 @@ export default function RegisterPage() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
+  // Dynamic screen width
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    const handleResize = () => setScreenWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const handleNextStep1 = async (e) => {
     e.preventDefault();
-
     if (!fullName || !contactNo || !email || !address) {
       alert("Please fill all required fields.");
       return;
@@ -67,7 +74,6 @@ export default function RegisterPage() {
       });
 
       const data = await res.json();
-
       if (res.ok && data.success) {
         setStep(3);
       } else {
@@ -81,7 +87,6 @@ export default function RegisterPage() {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-
     if (!password || !confirmPassword) {
       setPasswordError("Both fields are required.");
       return;
@@ -96,18 +101,10 @@ export default function RegisterPage() {
       const res = await fetch("http://localhost:3001/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          fullName,
-          contactNo,
-          email,
-          address,
-          customerId,
-          password,
-        }),
+        body: JSON.stringify({ fullName, contactNo, email, address, customerId, password }),
       });
 
       const data = await res.json();
-
       if (res.ok) {
         alert("✅ Registration successful!");
         navigate("/userlogin");
@@ -292,15 +289,18 @@ const renderStep2 = () => {
   const isMobile = window.innerWidth <= 570;
 
   const otpBoxStyle = {
-    width: isMobile ? "15px" : "25px",      // smaller on mobile
-    height: isMobile ? "15x" : "25px",
+    width: isMobile ? "8px" : "10px",      // smaller on mobile
+    height: isMobile ? "8x" : "27px",
     textAlign: "center",
-    fontSize: isMobile ? "10px" : "15px",
+    fontSize: isMobile ? "15px" : "15px",
     borderRadius: "6px",
     border: "1px solid #ccc",
     backgroundColor: "#1f1f1f",
     color: "#fff",
     outline: "none",
+    display: "flex",
+    flexDirection: "row",
+    
   };
 
   const handleOtpChange = (value, index) => {
@@ -366,7 +366,7 @@ const renderStep2 = () => {
           type="button"
           onClick={() => setStep(1)}
           className="agent-login-btn"
-          style={{ height: isMobile ? "2.2rem" : "2.6rem" }}
+          style={{ height: isMobile ? "2.6rem" : "2.6rem" }}
         >
           Go Back
         </button>{" "}
