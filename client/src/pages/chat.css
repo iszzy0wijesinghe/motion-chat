@@ -469,3 +469,67 @@ background-color: rgb(219, 219, 219);
 .star.filled {
   color: #000;
 }
+
+
+
+
+
+@media screen and (max-width: 720px) {
+  .chat-layout-container {
+    flex-direction: column;
+  }
+
+  .chat-left-space {
+    display: none;
+  }
+
+  .chat-main-section {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .chat-details-section {
+    display: none;
+  }
+
+  /* Show toggle button on top right */
+  .details-toggle-btn {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  /* Popup style for chat details */
+  .chat-details-popup {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 85%;
+    height: 100%;
+    background: white;
+    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease;
+    z-index: 999;
+    padding: 1.5rem;
+    overflow-y: auto;
+  }
+
+  .chat-details-popup.open {
+    right: 0;
+  }
+
+  .popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 998;
+  }
+}
