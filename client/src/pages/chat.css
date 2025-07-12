@@ -186,6 +186,7 @@ background-color: rgb(219, 219, 219);
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.3);
   /* backdrop-filter: blur(0.1px); */
+  justify-content: space-between;
   border-radius: 20px;
   position: relative;
   display: flex;
@@ -531,5 +532,17 @@ background-color: rgb(219, 219, 219);
     inset: 0;
     background: rgba(0, 0, 0, 0.4);
     z-index: 998;
+  }
+}
+
+
+@media screen and (max-width: 720px) {
+  .chat-layout-container {
+    flex-direction: column;
+    height: 100dvh; /* 🆕 modern mobile safe height */
+  }
+
+  .chat-main-section {
+    height: calc(100dvh - 100px); /* Adjust this as needed */
   }
 }
