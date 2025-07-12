@@ -25,9 +25,13 @@ export default function UserChatTopicPage() {
   if (topic === "service") {
     navigate("/our-service");
   } else {
-    localStorage.setItem("chatTopic", topic); 
+    localStorage.setItem("chatTopic", topic);
     sessionStorage.setItem("refreshUserChat", Date.now().toString());
-    navigate("/userchat");
+
+    // ✅ Delay navigation slightly to ensure localStorage is written
+    setTimeout(() => {
+      navigate("/userchat");
+    }, 100); // 100ms is enough
   }
 };
 
