@@ -173,7 +173,7 @@ export default function EntryPage() {
           style={{
             display: "none",
             position: "fixed",
-            bottom: "80px",
+            bottom: "100px",
             left: "50%",
             transform: "translateX(-50%)",
             backgroundColor: "#fff",
@@ -187,7 +187,7 @@ export default function EntryPage() {
             opacity: 0.95,
           }}
         >
-          Agent mode is compatible with desktop only.
+          Agent mode is compatible with desktop mode only.
         </div>
       </div>
     </div>
