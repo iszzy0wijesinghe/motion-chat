@@ -606,5 +606,11 @@ body {
   padding-right: 4rem;
 }
 
+.entry-content {
+  padding-top: 10vh;
+  margin-top: 5vh;
+  
+}
+
 
 }
