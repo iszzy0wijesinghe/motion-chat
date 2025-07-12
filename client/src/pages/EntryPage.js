@@ -148,12 +148,46 @@ export default function EntryPage() {
           <p>
             Are you a chat agent?{" "}
             <button
-              onClick={() => navigate("/login")}
+              onClick={(e) => {
+                if (window.innerWidth <= 720) {
+                  e.preventDefault();
+                  const popup = document.getElementById("agent-mobile-popup");
+                  if (popup) {
+                    popup.style.display = "block";
+                    setTimeout(() => {
+                      popup.style.display = "none";
+                    }, 2500);
+                  }
+                } else {
+                  navigate("/login");
+                }
+              }}
               className="agent-login-btn"
             >
               Login here
             </button>
           </p>
+        </div>
+        <div
+          id="agent-mobile-popup"
+          style={{
+            display: "none",
+            position: "fixed",
+            bottom: "80px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            backgroundColor: "#fff",
+            color: "#000",
+            padding: "0.75rem 1.2rem",
+            borderRadius: "12px",
+            boxShadow: "0 0 20px rgba(0,0,0,0.4)",
+            zIndex: 9999,
+            fontSize: "0.95rem",
+            fontWeight: "bold",
+            opacity: 0.95,
+          }}
+        >
+          Agent mode is compatible with desktop only.
         </div>
       </div>
     </div>
