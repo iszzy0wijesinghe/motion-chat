@@ -173,7 +173,7 @@ export default function EntryPage() {
           style={{
             display: "none",
             position: "fixed",
-            bottom: "100px",
+            bottom: "120px",
             left: "50%",
             transform: "translateX(-50%)",
             backgroundColor: "#fff",
