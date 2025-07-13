@@ -592,7 +592,7 @@ background-color: rgb(219, 219, 219);
   box-shadow: 0 0px 15px rgba(0, 0, 0, 0.3); 
   padding: 1rem;
   position: absolute;
-  top: 85vh;
+  top: 80vh;
   width: 90vw;
 }
 
@@ -633,7 +633,7 @@ background-color: rgb(219, 219, 219);
 
 
 .scrollable-chat {
-  height: calc(100vh - 180px); /* Adjust as needed */
+  height: calc(80vh - 180px); /* Adjust as needed */
   overflow-y: auto;
   scroll-behavior: smooth;
   padding: 1rem;
