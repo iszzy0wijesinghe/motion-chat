@@ -593,7 +593,7 @@ background-color: rgb(219, 219, 219);
   padding: 1rem;
   position: absolute;
   top: 80vh;
-  width: 90vw;
+  width: 85vw;
 }
 
 .chat-input input {
@@ -637,7 +637,7 @@ background-color: rgb(219, 219, 219);
   overflow-y: auto;
   scroll-behavior: smooth;
   padding: 1rem;
-  width: 90vw;
+  width: 85vw;
   margin-bottom: 20vh;
 }
 
