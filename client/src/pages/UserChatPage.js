@@ -196,15 +196,17 @@ export default function UserChatPage() {
             Hello, {userName}
           </h3>
           <p>{userEmail}</p>
-          <button className="details-toggle-btn" onClick={() => setShowPopup(true)}>
-            Info
-          </button>
+
+          
 
 
           <div className="logochat">
             <img src={Logo} alt="Logo" />
           </div>
         </div>
+        <button className="details-toggle-btn" onClick={() => setShowPopup(true)}>
+            Info
+          </button>
 
         <div className="chat-box scrollable-chat" ref={chatRef}>
           {chat.map((msg, index) => (
@@ -319,63 +321,82 @@ export default function UserChatPage() {
                 Skip
               </button>
             </div>
+
+
+
+
           </div>
         </div>
       )}
 
+
+
       {/* Mobile details popup */}
       {showPopup && window.innerWidth < 720 && (
-        <>
-          <div className="popup-overlay" onClick={() => setShowPopup(false)} />
-          <div className="chat-details-popup open">
-            <div className="details-box glass-card">
-              <h4>Agent Status</h4>
-              <p style={{ color: "green", fontWeight: "bold" }}>
-                {agentJoined ? "Connected" : "Waiting..."}
-              </p>
-            </div>
-            <div className="details-box glass-card">
-              <h4>Customer Name</h4>
-              <p>{userName}</p>
-            </div>
-            <div className="details-box glass-card">
-              <h4>Topic</h4>
-              <p>{chatTopic}</p>
-            </div>
-            <div className="details-box glass-card">
-              <h4>Chat ID</h4>
-              <p>{chatId}</p>
-            </div>
-            <div className="details-box glass-card">
-              <button onClick={handleScreenshot} className="screenshot-btn">
-                📷 Save Chat
-              </button>
-            </div>
-            <div className="details-box glass-card">
-              <h4>Session Time</h4>
-              <div id="chat-timer">00 hrs : 00 mins : 00 secs</div>
-            </div>
-            <div className="details-box glass-card" style={{ marginTop: "1.5rem" }}>
-              <button
-                onClick={handleEndChat}
-                className="end-chat-btn"
-                style={{
-                  backgroundColor: "#ff4d4d",
-                  color: "#fff",
-                  padding: "10px",
-                  border: "none",
-                  borderRadius: "8px",
-                  cursor: "pointer",
-                  width: "100%",
-                  fontWeight: "bold",
-                }}
-              >
-                End Chat
-              </button>
-            </div>
-          </div>
-        </>
-      )}
+  <>
+    <div className="popup-overlay" onClick={() => setShowPopup(false)} />
+    <div className="chat-details-popup open">
+      <button
+        onClick={() => setShowPopup(false)}
+        className="back-btn-popup"
+      >
+        ← Back to Chat
+      </button>
+
+      <div className="details-box glass-card">
+        <h4>Agent Status</h4>
+        <p style={{ color: "green", fontWeight: "bold" }}>
+          {agentJoined ? "Connected" : "Waiting..."}
+        </p>
+      </div>
+
+      <div className="details-box glass-card">
+        <h4>Customer Name</h4>
+        <p>{userName}</p>
+      </div>
+
+      <div className="details-box glass-card">
+        <h4>Topic</h4>
+        <p>{chatTopic}</p>
+      </div>
+
+      <div className="details-box glass-card">
+        <h4>Chat ID</h4>
+        <p>{chatId}</p>
+      </div>
+
+      <div className="details-box glass-card">
+        <button onClick={handleScreenshot} className="screenshot-btn">
+          📷 Save Chat
+        </button>
+      </div>
+
+      {/* <div className="details-box glass-card">
+        <h4>Session Time</h4>
+        <div id="chat-timer">00 hrs : 00 mins : 00 secs</div>
+      </div> */}
+
+      <div className="details-box glass-card" style={{ marginTop: "1.5rem" }}>
+        <button
+          onClick={handleEndChat}
+          className="end-chat-btn"
+          style={{
+            backgroundColor: "#ff4d4d",
+            color: "#fff",
+            padding: "10px",
+            border: "none",
+            borderRadius: "8px",
+            cursor: "pointer",
+            width: "100%",
+            fontWeight: "bold",
+          }}
+        >
+          End Chat
+        </button>
+      </div>
+    </div>
+  </>
+)}
 
 
 
